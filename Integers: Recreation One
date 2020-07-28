@@ -1,0 +1,17 @@
+def list_squared(m, n):
+    res = []
+    for number in range(m, n+1):
+        if sumsquare(number) ** 0.5 == int(sumsquare(number) ** 0.5):
+            res.append([number, sumsquare(number)])
+    return res
+
+    
+def sumsquare(n):
+    divisors = []
+    for i in range(1, int(n**0.5) + 1):
+        if n % i == 0:
+            divisors.append(i)
+            if (n/i) not in divisors:
+                divisors.append(n/i)
+    divisors = list(map(lambda x: int(x ** 2), divisors))
+    return sum(divisors)
