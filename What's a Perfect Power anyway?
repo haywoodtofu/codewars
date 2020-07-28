@@ -1,0 +1,8 @@
+def isPP(n):
+    if n < 4:
+        return None
+    for m in range(2, int(n**0.5)+1):
+        for k in range(2, 20): # this line is complete garbage; the 20 is just an arbitrary limit
+            if m**k == n:
+                return [m,k]
+    return None
