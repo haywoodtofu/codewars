@@ -1,0 +1,27 @@
+conv = {}
+for i in range(0, 10):
+    conv[i] = str(i)
+conv[10] = 'A'
+conv[11] = 'B'
+conv[12] = 'C'
+conv[13] = 'D'
+conv[14] = 'E'
+conv[15] = 'F'
+
+def rgb(r, g, b):
+    vals = []
+    res = ''
+    for color in (r, g, b):
+        if color < 0:
+            vals.append(0)
+            vals.append(0)
+        elif color > 255:
+            vals.append(15)
+            vals.append(15)
+        else:
+            vals.append(int(color/16))
+            vals.append(color % 16)
+    for i in range(len(vals)):
+        vals[i] = conv[vals[i]]
+    res = ''.join(vals)
+    return res
