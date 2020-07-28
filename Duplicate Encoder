@@ -1,0 +1,15 @@
+def duplicate_encode(word):
+    hold = list(word.lower())
+    res = []
+    counts = {}
+    for letter in hold:
+        if letter not in counts:
+            counts[letter] = 0
+        counts[letter] += 1
+    for letter in hold:
+        if counts[letter] > 1:
+            res.append(')')
+        else:
+            res.append('(')
+    x = ''.join(res)
+    return x
