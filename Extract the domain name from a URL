@@ -1,0 +1,13 @@
+import re
+
+def domain_name(url):
+    webRe = re.compile('''
+    (?:http(?:s)?://)?
+    (?:www.)?
+    ([a-zA-Z0-9_+-]+)
+    .
+    [a-zA-Z0-9_+-]+ 
+    ''', re.VERBOSE)
+
+    web = webRe.search(url)
+    return web.group(1)
