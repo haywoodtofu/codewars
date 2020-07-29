@@ -1,0 +1,17 @@
+class T:
+    def __init__(self,value,left=None,right=None):
+        self.value=value
+        self.left=left
+        self.right=right
+
+def is_bst(node):
+    lis = []
+    x =  traverse(node, lis) 
+    return x == sorted(x) or x == sorted(x, reverse = True)
+    
+def traverse(node, list):
+    if node:
+        traverse(node.left, list)
+        list.append(node.value)
+        traverse(node.right, list)
+    return list
